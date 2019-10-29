@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DishListComponent } from './dish-list/dish-list.component';
+import { AppRoutingModule } from './app-routing.module';
+import { SearchDishComponent } from './search-dish/search-dish.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DishListComponent,
+    SearchDishComponent
   ],
   imports: [
     BrowserModule,
