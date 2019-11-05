@@ -13,13 +13,14 @@ export class DishListComponent implements OnInit {
   constructor(private dishService: DishService) { }
 
   ngOnInit() {
-    this.getDishes();
+    this.dishes = this.dishService.getAllDishes();
+      // .subscribe(dishes => this.dishes = dishes);
   }
 
-  getDishes(): void {
-    this.dishService.getAllDishes();
-    // .subscribe(dishes => this.dishes = dishes);
-  }
+  // getDishes(): Dish[] {
+  //   //  this.dishService.getAllDishes();
+  //   //  .subscribe(dishes => this.dishes = dishes);
+  // }
 
   // add(name: string): void {
   //   name = name.trim();

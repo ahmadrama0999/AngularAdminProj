@@ -4,7 +4,7 @@ import { Dish } from './dish';
 @Injectable({ providedIn: 'root' })
 export class DishService {
 
-    getAllDishes(): Dish[] {
+    getAllDishes() {
         return [
             { id: 11, name: 'Banana' },
             { id: 12, name: 'IceCream' },
@@ -18,6 +18,11 @@ export class DishService {
             { id: 20, name: 'Chocolate' }
         ];
     }
+
+    getDish(id: number): Dish {
+        //return this.getAllDishes().filter(dish => dish.id === id);
+        return this.getAllDishes().find(dish => dish.id === id );
+      }
 
 }
 

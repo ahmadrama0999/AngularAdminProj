@@ -6,6 +6,7 @@ import { SearchDishComponent } from './search-dish/search-dish.component';
 const routes: Routes = [
     { path: '', redirectTo: '/searchDish', pathMatch: 'full' },
     { path: 'searchDish', component: SearchDishComponent},
+    // { path: 'detail/:id', component: ??? },
     { path: 'dishList', component: DishListComponent}
  ];
 
