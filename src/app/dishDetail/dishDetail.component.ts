@@ -14,19 +14,27 @@ export class DishDetailComponent implements OnInit {
 
   @Input() dish: Dish;
 
-
   constructor(
     private route: ActivatedRoute,
     private dishService: DishService,
-    private location: Location) { }
+    private location: Location) {}
 
   ngOnInit() {
-   this.getDish();
+    this.getDish();
   }
 
   getDish() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.dish = this.dishService.getDish(id);
+  }
+
+  save() {
+    this.dishService.updateDish(this.dish);
+    this.location.back();
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

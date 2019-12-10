@@ -13,7 +13,7 @@ export class DishListComponent implements OnInit {
   constructor(private dishService: DishService) { }
 
   ngOnInit() {
-    this.dishes = this.dishService.getAllDishes();
+    this.dishes = this.dishService.getDishes();
       // .subscribe(dishes => this.dishes = dishes);
   }
 
@@ -22,18 +22,15 @@ export class DishListComponent implements OnInit {
   //   //  .subscribe(dishes => this.dishes = dishes);
   // }
 
-  // add(name: string): void {
-  //   name = name.trim();
-  //   if (!name) { return; }
-  //   this.dishService.addDish({ name } as Dish)
-  //     .subscribe(dish => {
-  //       this.dishes.push(dish);
-  //     });
-  // }
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.dishService.addDish(name);
+  }
 
-  // delete(dish: Dish): void {
-  //   this.dishes = this.dishes.filter(h => h !== dish);
-  //   this.dishService.deleteDish(dish).subscribe();
-  // }
+  delete(dish: Dish): void {
+    //this.dishes = this.dishes.filter(h => h !== dish);
+    this.dishService.deleteDish(dish);
+  }
 
 }
