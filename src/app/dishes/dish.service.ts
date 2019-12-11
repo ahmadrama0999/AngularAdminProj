@@ -1,58 +1,97 @@
 import { Injectable } from '@angular/core';
-import { Dish } from './dish';
+import { Dish } from './dish.model';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class DishService {
 
-    // private dataBaseUrl='https://dishes-a1d9.restdb.io/rest/values?apikey=5df14bc1bf46220df655da25'
-    private url = 'https://dishes-a1d9.restdb.io/rest/values';  // URL to web api
-    private apiKey = '?apikey=5df14bc1bf46220df655da25'
+  // private dataBaseUrl='https://dishes-a1d9.restdb.io/rest/values?apikey=5df14bc1bf46220df655da25'
+  private url = 'https://dishes-a1d9.restdb.io/rest/values';  // URL to web api
+  private apiKey = '?apikey=5df14bc1bf46220df655da25';
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  // getDishes(): Dish[] {
+  //     return this.dishes;
+  // }
+
+  // getDish(_id: string): Dish {
+  //     console.log(this.dishes.find(dish => dish.id === id ));
+
+  // }
+
+  // updateDish(dish: Dish) {
+  //       console.log(this.dishes.find(dis => dis.id === dish.id).name = dish.name);
+  //       this.dishes.find(dis => dis.id === dish.id).name = dish.name;
+  //   }
+
+  // deleteDish(dish: Dish) {
+  //   const delUrl = this.url + '/' + dish._id + this.apiKey;
+  //   console.log(delUrl);
+  //   return this.http.delete<Dish>(delUrl, this.httpOptions);
+  // }
+
+  /** DELETE: delete the hero from the server */
+  deleteDish(dish: Dish): Observable<{}> {
+    const delUrl = this.url + '/' + dish._id + this.apiKey;
+    return this.http.delete(delUrl, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('deleteHero'))
+      );
+  }
+
+  /** POST: add a new hero to the database */
+  addDish(dish: Dish): Observable<Dish> {
+    return this.http.post<Dish>(this.url + this.apiKey, dish, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('addHero', dish))
+      );
+  }
+
+  /** PUT: update the hero on the server. Returns the updated hero upon success. */
+  updateDish(dish: Dish): Observable<Dish> {
+    const updUrl = this.url + '/' + dish._id + this.apiKey;
+    return this.http.put<Dish>(updUrl, dish, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('updateDish', dish))
+      );
+  }
 
 
-    // getDishes(): Dish[] {
-    //     return this.dishes;
-    // }
+  // addDish(name: string) {
+  //     this.dishes.push({id: this.genId(), name, url: ''} );
+  // }
 
-    // getDish(id: number): Dish {
-    //     console.log(this.dishes.find(dish => dish.id === id ));
-    //     return this.dishes.find(dish => dish.id === id);
-    // }
-
-    // updateDish(dish: Dish) {
-    //       console.log(this.dishes.find(dis => dis.id === dish.id).name = dish.name);
-    //       this.dishes.find(dis => dis.id === dish.id).name = dish.name;
-    //   }
-    // deleteDish(dish: Dish) {
-    //    this.dishes.splice(this.dishes.indexOf(dish), 1);
-    // }
-
-    // addDish(name: string) {
-    //     this.dishes.push({id: this.genId(), name, url: ''} );
-    // }
-
-    //  private genId(): number {
-    //     return this.dishes.length > 0 ? Math.max(...this.dishes.map(dish => dish.id)) + 1 : 11;
-    //   }
+  //  private genId(): number {
+  //     return this.dishes.length > 0 ? Math.max(...this.dishes.map(dish => dish.id)) + 1 : 11;
+  //   }
 
 
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-      getDishes(): Observable<Dish[]> {
-        return this.http.get<Dish[]>(this.url + this.apiKey)
-          .pipe(catchError(this.handleError<Dish[]>('getHeroes', [])));
-      }
+  getDishes(): Observable<Dish[]> {
+    return this.http.get<Dish[]>(this.url + this.apiKey)
+      .pipe(catchError(this.handleError<Dish[]>('getHeroes', [])));
+  }
 
-      private handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-          // TODO: send the error to remote logging infrastructure
-          console.error(error); // log to console instead
-          // Let the app keep running by returning an empty result.
-          return of(result as T);
-        };
-      }
+  getDishById(_id: string): Observable<Dish> {
+    const updUrl = this.url + '/' + _id + this.apiKey;
+    return this.http.get<Dish>(updUrl)
+      .pipe(catchError(this.handleError<Dish>('getHeroes')));
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 
 }
 
