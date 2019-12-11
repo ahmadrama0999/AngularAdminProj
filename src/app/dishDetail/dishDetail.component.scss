@@ -27,3 +27,17 @@ label {
     color: #ccc;
     cursor: auto;
   }
+
+  img {
+    border-radius: 20px;
+    height: 180px;
+    width: 180px;
+  }
+
+  .polaroid {
+    position: relative;
+    border-color: black;
+    border-width: 2px;
+    border-style: dashed;
+    margin: 20px;
+}

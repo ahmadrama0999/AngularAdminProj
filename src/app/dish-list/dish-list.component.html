@@ -25,9 +25,9 @@
     <img src='{{dish.url}}' class="card-img-top">
   <div class="card-body">
     <h3>{{dish.name}}</h3>
-    <p class="card-text">Описание блюда.Его состовляющие.</p>
-    <a routerLink="/admin/detail/{{dish.id}}" class="btn btn-primary">Редактировать</a>
-    <button type="button" class="btn btn-primary btn-sm" title="delete dish" (click)="delete(dish)">Удалить</button>
+    <p class="card-text" translate>detail.message</p>
+    <a routerLink="/admin/detail/{{dish.id}}" class="btn btn-primary" translate>detail.edit</a>
+    <button type="button"class="btn btn-outline-success my-2 my-sm-0" title="delete dish" (click)="delete(dish)" translate>detail.delete</button>
   </div>
 </div>
 </div>

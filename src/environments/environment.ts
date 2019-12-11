@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://pnit-lessons.azurewebsites.net/api'
+  apiUrl: 'https://pnit-lessons.azurewebsites.net/api',
 };
 
 /*

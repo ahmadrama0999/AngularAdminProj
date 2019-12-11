@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './dishes/auth.server';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,16 @@ import { AuthService } from './dishes/auth.server';
 export class AppComponent {
   title = 'AngularAdminProj';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private translate: TranslateService) {
+    translate.addLangs(['en', 'klingon']);
+    translate.addLangs(['ru', 'kli']);
+    translate.setDefaultLang('en');
+    translate.use('en');
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+}
 
   logout() {
     this.authService.logout();

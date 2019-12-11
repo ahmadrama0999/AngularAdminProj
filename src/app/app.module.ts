@@ -10,9 +10,12 @@ import { SearchDishComponent } from './search-dish/search-dish.component';
 import { DishDetailComponent } from './dishDetail/dishDetail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthService } from './dishes/auth.server';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TranslateModule, TranslateLoader, TranslateCompiler} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 
 
 
@@ -26,6 +29,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    ],
    imports: [
       BrowserModule,
+      TranslateModule.forRoot({
+         loader: {
+           provide: TranslateLoader,
+           useFactory: HttpLoaderFactory,
+           deps: [HttpClient]
+         }
+       }),
       AppRoutingModule,
       FormsModule,
       ReactiveFormsModule,
@@ -47,3 +57,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    ]
 })
 export class AppModule { }
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+   return new TranslateHttpLoader(http);
+}
