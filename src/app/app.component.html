@@ -1,15 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/admin/dishList" >Dish List</a>
+        <a class="nav-link" routerLink="/admin/dishList">Dish List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/admin/searchDish" >Add Dish</a>
+        <a class="nav-link" routerLink="/admin/searchDish">Add Dish</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -18,10 +19,11 @@
     </form>
 
     <div *ngIf="isLogged()">
-    <button style="margin: 5px;" class="btn btn-primary" href="javascript:void(0)" (click)="logout()">Sign out</button>
+      <button style="margin: 5px;" class="btn btn-primary" href="javascript:void(0)" (click)="logout()">Sign
+        out</button>
     </div>
     <div *ngIf="!isLogged()">
-    <button style="margin: 5px;" class="btn btn-primary" (click)="login()">Sign in</button>
+      <button style="margin: 5px;" class="btn btn-primary" (click)="login()">Sign in</button>
     </div>
 
 

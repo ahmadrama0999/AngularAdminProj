@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../dishes/auth.server';
+import { AuthService } from '../API/auth.service';
 
 
 @Component({
@@ -47,8 +47,8 @@ export class LoginComponent implements OnInit {
 
   private buildForm() {
     this.loginForm = this.formBuilder.group({
-      userName: [ null, Validators.required ],
-      password: [ null, Validators.required ]
+      userName: [null, Validators.required],
+      password: [null, Validators.required]
     });
   }
 

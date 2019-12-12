@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { DishDetailComponent } from './dishDetail.component';
+import { DishDetailComponent } from './dish-detail.component';
 
 describe('DishDetailComponent', () => {
   let component: DishDetailComponent;

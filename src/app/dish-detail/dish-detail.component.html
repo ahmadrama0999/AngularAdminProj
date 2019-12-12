@@ -1,19 +1,19 @@
 <div *ngIf="dish">
   <h2 translate>detail.edit</h2>
   <div>
-      <img src="{{dish.url}}">
+    <img src="{{dish.url}}">
   </div>
   <div><span>id: </span>{{dish.id}}</div>
   <div>
     <label>name:
-      <input [(ngModel)]="dish.name" placeholder="name"/>
+      <input [(ngModel)]="dish.name" placeholder="name" />
     </label>
   </div>
   <div>
-      <label>url:
-        <input [(ngModel)]="dish.url" placeholder="name"/>
-      </label>
-    </div>
+    <label>url:
+      <input [(ngModel)]="dish.url" placeholder="name" />
+    </label>
+  </div>
   <button (click)="save()">save</button>
   <button (click)="goBack()">back</button>
 </div>

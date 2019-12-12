@@ -12,6 +12,7 @@ export class ShorterApi {
     }
 
     makeShort(json: any) {
+        console.log(json)
         return this.httpClient.post(this.rurl, json);
     }
 }

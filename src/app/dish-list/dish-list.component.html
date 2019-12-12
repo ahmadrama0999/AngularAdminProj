@@ -1,37 +1,30 @@
 <h2>Our Dishes</h2>
 
-<!-- <ul class="dishes">
-  <li *ngFor="let dish of dishes">
-    <a [routerLink]="['/admin', 'detail', dish.id]">
-      <span>{{dish.id}}</span> {{dish.name}}
-    </a>
-    <button class="delete" title="delete dish" (click)="delete(dish)">x</button>
-  </li>
-</ul> -->
-
 <div class="d-flex justify-content-between">
-    <h2>Dishes</h2>
-  </div>
-  <div class="mt-4 table-responsive">
-    <table class="table table-striped table-sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>name</th>
-          <th>url</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let dish of dishes; let dishIndex = index">
-          <td>{{ dishIndex + 1 }}</td>
-          <td>{{ dish.name }}</td>
-          <td>
-             <!-- {{ dish.url }}</td> -->
-            {{ (dish.url | shortLink) | async }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h2>Dishes</h2>
+</div>
+<div class="mt-4 table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>name</th>
+        <th>url</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dish of dishes; let dishIndex = index">
+        <td>{{ dishIndex + 1 }}</td>
+        <td>{{ dish.name }}</td>
+        <td>
+          <a href="{{dish.url}}">
+            {{ (dish.url | shortLink) | async }}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <div class="row">
   <div class="col-4" *ngFor="let dish of dishes">

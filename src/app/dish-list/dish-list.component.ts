@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DishService } from '../dishes/dish.service';
-import { Dish } from '../dishes/dish.model';
+import { DishService } from '../API/dish.service';
+import { Dish } from '../models/dish.model';
 
 
 
@@ -10,7 +10,7 @@ import { Dish } from '../dishes/dish.model';
   styleUrls: ['./dish-list.component.scss']
 })
 export class DishListComponent implements OnInit {
-  
+
   dishes: Dish[];
 
   constructor(private dishService: DishService) { }
@@ -24,7 +24,6 @@ export class DishListComponent implements OnInit {
     this.dishService.getDishes()
       .subscribe(dishes => {
         this.dishes = dishes;
-        console.log(dishes);
       });
   }
 

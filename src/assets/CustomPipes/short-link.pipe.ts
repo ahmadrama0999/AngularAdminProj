@@ -13,7 +13,6 @@ export class ShortLinkPipe implements PipeTransform {
   }
 
   shortLink: string;
-  // TODO 
   transform(url: string) {
     const obj = {
       destination: url

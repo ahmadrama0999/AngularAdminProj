@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { DishService } from '../dishes/dish.service';
-import { Dish } from '../dishes/dish.model';
+import { DishService } from '../API/dish.service';
+import { Dish } from '../models/dish.model';
 
 @Component({
-  selector: 'app-search-dish',
-  templateUrl: './search-dish.component.html',
-  styleUrls: ['./search-dish.component.scss']
+  selector: 'app-add-dish',
+  templateUrl: './add-dish.component.html',
+  styleUrls: ['./add-dish.component.scss']
 })
-export class SearchDishComponent implements OnInit {
+export class AddDishComponent implements OnInit {
 
   addForm: FormGroup;
   isSubmitted = false;

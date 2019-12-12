@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './dishes/auth.server';
+import { AuthService } from './API/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -17,13 +17,13 @@ export class AppComponent {
     translate.use('en');
   }
 
-  isLogged(): boolean{
+  isLogged(): boolean {
     return this.authService.isLoggedIn;
   }
 
   useLanguage(language: string) {
     this.translate.use(language);
-}
+  }
 
   logout() {
     this.authService.logout();
