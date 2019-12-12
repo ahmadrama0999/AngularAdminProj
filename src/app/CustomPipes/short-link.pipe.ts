@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ShorterApi } from './ShorterApi.service'
+import { BehaviorSubject } from 'rxjs';
 
 @Pipe({
   name: 'shortLink'
@@ -17,9 +18,15 @@ export class ShortLinkPipe implements PipeTransform {
     const obj = {
       destination: url
     };
-
-    this.shorterApi.makeShort(obj).subscribe((data: any) =>
-      this.shortLink = data.shortUrl
+    const _subject = new BehaviorSubject('-');
+    this.shorterApi.makeShort(obj).subscribe((data: any) => {
+      this.shortLink = data.shortUrl;
+      console.log(this.shortLink)
+      _subject.next(data.shortUrl);
+    }
     );
+
+    return _subject
   }
+
 }
