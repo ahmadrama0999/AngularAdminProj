@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSuccess() {
-    this.router.navigate(['dishList']);
+    this.router.navigate(['admin/dishList']);
   }
 
   onFailed() {

@@ -17,6 +17,10 @@ export class AppComponent {
     translate.use('en');
   }
 
+  isLogged(): boolean{
+    return this.authService.isLoggedIn;
+  }
+
   useLanguage(language: string) {
     this.translate.use(language);
 }

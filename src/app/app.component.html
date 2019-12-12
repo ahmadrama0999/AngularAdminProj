@@ -16,7 +16,15 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+
+    <div *ngIf="isLogged()">
     <button style="margin: 5px;" class="btn btn-primary" href="javascript:void(0)" (click)="logout()">Sign out</button>
+    </div>
+    <div *ngIf="!isLogged()">
+    <button style="margin: 5px;" class="btn btn-primary" (click)="login()">Sign in</button>
+    </div>
+
+
     <button class="btn btn-outline-success my-2 my-sm-0" (click)="useLanguage('en')">en</button>
     <button class="btn btn-outline-success my-2 my-sm-0" (click)="useLanguage('ru')">ru</button>
   </div>
