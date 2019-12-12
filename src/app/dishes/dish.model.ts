@@ -1,13 +1,11 @@
 export class Dish {
 
-    constructor(name: string) {
+    constructor(name: string, url: string) {
         this.name = name;
+        this.url = url;
     }
-    image?: File;
     _id: string;
     id: number;
     name: string;
     url: string = null;
 }
-
-

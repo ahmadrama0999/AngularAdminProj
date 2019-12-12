@@ -25,6 +25,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "angular-in-memory-web-api": "^0.9.0",
     "bootstrap": "^4.4.1",
+    "bootstrap-modal": "^2.2.4",
     "ng-bootstrap": "^1.6.3",
     "ngx-bootstrap": "^5.2.0",
     "ngx-bootstrap-modal": "^2.0.1",

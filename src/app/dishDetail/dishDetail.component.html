@@ -9,14 +9,11 @@
       <input [(ngModel)]="dish.name" placeholder="name"/>
     </label>
   </div>
+  <div>
+      <label>url:
+        <input [(ngModel)]="dish.url" placeholder="name"/>
+      </label>
+    </div>
   <button (click)="save()">save</button>
   <button (click)="goBack()">back</button>
-
-  <div class="form-group">
-    <label for="file">Choose File</label>
-    <input type="file"
-           id="file"
-           (change)="handleFileInput($event.target.files)">
-</div>
-
 </div>

@@ -12,25 +12,10 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './dishDetail.component.html',
   styleUrls: ['./dishDetail.component.scss']
 })
+
 export class DishDetailComponent implements OnInit {
 
   @Input() dish: Dish;
-
-  fileToUpload: File = null;
-
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-    this.uploadFileToActivity(this.fileToUpload);
-  }
-
-  uploadFileToActivity(image: File) {
-    this.dish.image = this.fileToUpload;
-    // this.postFile(this.fileToUpload).subscribe(data => {
-    //   console.log(data);
-    // }, error => {
-    //   console.log(error);
-    // });
-  }
 
   constructor(
     private router: Router,

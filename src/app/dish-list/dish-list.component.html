@@ -1,34 +1,48 @@
 <h2>Our Dishes</h2>
 
-<div>
-  <label>Dish name:
-    <input #dishName />
-  </label>
-  <button (click)="add(dishName.value); dishName.value=''">
-    add
-  </button>
-</div>
-
-<ul class="dishes">
+<!-- <ul class="dishes">
   <li *ngFor="let dish of dishes">
     <a [routerLink]="['/admin', 'detail', dish.id]">
       <span>{{dish.id}}</span> {{dish.name}}
     </a>
     <button class="delete" title="delete dish" (click)="delete(dish)">x</button>
   </li>
-</ul>
+</ul> -->
+
+<div class="d-flex justify-content-between">
+    <h2>Dishes</h2>
+  </div>
+  <div class="mt-4 table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>name</th>
+          <th>url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dish of dishes; let dishIndex = index">
+          <td>{{ dishIndex + 1 }}</td>
+          <td>{{ dish.name }}</td>
+          <td>
+            {{ dish.url }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 <div class="row">
-  <div class="col-3" *ngFor="let dish of dishes">
-    <div class="card" style="width: 20em;" class="polaroid">
-      <img src=dish.image class="card-img-top">
-      <div class="card-body">
-        <h3>{{dish.name}}</h3>
-        <p class="card-text" translate>detail.message</p>
-        <a routerLink="/admin/detail/{{dish._id}}" class="btn btn-primary" translate>detail.edit</a>
-        <button type="button" class="btn btn-outline-success my-2 my-sm-0" title="delete dish" (click)="delete(dish)"
-          translate>detail.delete</button>
-      </div>
+  <div class="col-4" *ngFor="let dish of dishes">
+    <!-- <div class="card" style="width: 20em;" class="polaroid"> -->
+    <img src={{dish.url}} class="card-img-top">
+    <div class="card-body">
+      <h3>{{dish.name}}</h3>
+      <p class="card-text" translate>detail.message</p>
+      <a routerLink="/admin/detail/{{dish._id}}" class="btn btn-primary" translate>detail.edit</a>
+      <button type="button" class="btn btn-outline-success my-2 my-sm-0" title="delete dish" (click)="delete(dish)"
+        translate>detail.delete</button>
     </div>
   </div>
+  <!-- </div> -->
 </div>

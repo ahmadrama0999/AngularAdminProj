@@ -25,7 +25,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
       DishListComponent,
       SearchDishComponent,
       DishDetailComponent,
-      LoginComponent
+      LoginComponent,
    ],
    imports: [
       BrowserModule,
