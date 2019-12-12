@@ -15,26 +15,6 @@ export class DishService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  // getDishes(): Dish[] {
-  //     return this.dishes;
-  // }
-
-  // getDish(_id: string): Dish {
-  //     console.log(this.dishes.find(dish => dish.id === id ));
-
-  // }
-
-  // updateDish(dish: Dish) {
-  //       console.log(this.dishes.find(dis => dis.id === dish.id).name = dish.name);
-  //       this.dishes.find(dis => dis.id === dish.id).name = dish.name;
-  //   }
-
-  // deleteDish(dish: Dish) {
-  //   const delUrl = this.url + '/' + dish._id + this.apiKey;
-  //   console.log(delUrl);
-  //   return this.http.delete<Dish>(delUrl, this.httpOptions);
-  // }
-
   /** DELETE: delete the hero from the server */
   deleteDish(dish: Dish): Observable<{}> {
     const delUrl = this.url + '/' + dish._id + this.apiKey;
@@ -60,16 +40,6 @@ export class DishService {
         catchError(this.handleError('updateDish', dish))
       );
   }
-
-
-  // addDish(name: string) {
-  //     this.dishes.push({id: this.genId(), name, url: ''} );
-  // }
-
-  //  private genId(): number {
-  //     return this.dishes.length > 0 ? Math.max(...this.dishes.map(dish => dish.id)) + 1 : 11;
-  //   }
-
 
   constructor(private http: HttpClient) { }
 

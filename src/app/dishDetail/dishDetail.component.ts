@@ -42,7 +42,6 @@ export class DishDetailComponent implements OnInit {
   }
 
   save() {
-    console.log(this.dish.image);
     this.dishService.updateDish(this.dish).subscribe(() => this.goBack());
   }
 

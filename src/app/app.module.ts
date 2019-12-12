@@ -15,6 +15,9 @@ import { AuthService } from './dishes/auth.server';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TranslateModule, TranslateLoader, TranslateCompiler} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { CcShortLinkDirective } from './CustomDirectives/cc-short-link.directive';
+import { ShortLinkPipe } from './CustomPipes/short-link.pipe';
+import { ShorterApi } from './CustomPipes/ShorterApi.service';
 
 
 
@@ -26,6 +29,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
       SearchDishComponent,
       DishDetailComponent,
       LoginComponent,
+      CcShortLinkDirective,
+      ShortLinkPipe,
    ],
    imports: [
       BrowserModule,
@@ -50,7 +55,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
         useClass: TokenInterceptor,
         multi: true
       },
-      AuthService
+      AuthService, ShorterApi
     ],
    bootstrap: [
       AppComponent
